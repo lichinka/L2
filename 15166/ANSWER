@@ -1,0 +1,2 @@
+- Using cudatoolkit/5.5 on Daint the warning appears.
+- As a workaround, specifying '-x c++' to nvcc compiles without warnings.

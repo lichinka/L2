@@ -1,0 +1,11 @@
+# OPENCL_PROFILE_LOG_VERSION 2.0
+# OPENCL_DEVICE 0 Tesla K20X
+# OPENCL_CONTEXT 1
+# TIMESTAMPFACTOR fffff620d267c908
+timestamp,method,gputime,cputime,ndrangesizeX,ndrangesizeY,occupancy
+timestamp=[ 430445.000 ] method=[ memcpyHtoDasync ] gputime=[ 12.032 ] cputime=[ 19.000 ] 
+timestamp=[ 430474.969 ] method=[ arrayset ] gputime=[ 27.872 ] cputime=[ 12.000 ] ndrangesize=[ 8192, 1 ] occupancy=[ 0.250 ] 
+timestamp=[ 430750.000 ] method=[ memcpyDtoHasync ] gputime=[ 13.088 ] cputime=[ 6.000 ] 
+timestamp=[ 908805.000 ] method=[ memcpyHtoDasync ] gputime=[ 12.992 ] cputime=[ 6.000 ] 
+timestamp=[ 916269.000 ] method=[ sum ] gputime=[ 29.440 ] cputime=[ 6.000 ] ndrangesize=[ 8192, 1 ] occupancy=[ 0.250 ] 
+timestamp=[ 916534.000 ] method=[ memcpyDtoHasync ] gputime=[ 13.056 ] cputime=[ 5.000 ] 

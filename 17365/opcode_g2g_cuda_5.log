@@ -1,0 +1,32 @@
+
+#MV2_CUDA_SMP_IPC=0
+#MV2_CUDA_NONBLOCKING_STREAMS=1
+#MV2_USE_CUDA=1
+#MV2_CUDA_IPC=0
+# OSU MPI-CUDA Bandwidth Test v4.4.1
+# Send Buffer on DEVICE (D) and Receive Buffer on DEVICE (D)
+# Size      Bandwidth (MB/s)
+1                       0.11
+2                       0.22
+4                       0.45
+8                       0.86
+16                      1.79
+32                      3.54
+64                      6.73
+128                    14.36
+256                    28.13
+512                    54.04
+1024                  111.71
+2048                  217.14
+4096                  369.04
+8192                  819.15
+16384                1403.15
+32768                2215.81
+65536                3043.21
+131072               3872.50
+262144               4140.98
+524288               4204.26
+1048576              4086.96
+2097152              4163.61
+4194304              4126.34
+##########

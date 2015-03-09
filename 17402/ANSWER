@@ -1,0 +1,8 @@
+- Profiling is possible if enabling the COMPUTE_PROFILE variable.
+- For MPI profiling, a wrapper script has to be used (like the ones in this
+  directory, starting from profile.sh).
+- No overhead was observed when profiling OpenCL over MPI on Daint.
+- For more examples, check:
+    https://bluewaters.ncsa.illinois.edu/openacc-and-cuda-profiling
+- A complete reference of the available counters may be found at:
+    http://www.cs.cmu.edu/afs/cs/academic/class/15668-s11/www/cuda-doc/Compute_Profiler.txt

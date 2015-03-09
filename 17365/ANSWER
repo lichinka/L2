@@ -1,0 +1,81 @@
+- The C++ examples in this directory use the OpenCL C++ Wrapper API v1.1. Docs are
+  available at https://www.khronos.org/registry/cl/specs/opencl-cplusplus-1.1.pdf
+- OpenCL buffers may be sent to another device using MPI and a host pointer 
+  returned by the 'enqueueMapBuffer' function.
+- On the receive side, the function 'enqueueUnmapMemObject' takes the pointer
+  of the received buffer and triggers a transfer of the received data to the
+  device.
+- Setting the environment variable MPICH_RDMA_ENABLED_CUDA=1 produces a -33 
+  (CL_INVALID_DEVICE) error when trying to create a new OpenCL Context. This 
+  happens disregarding of the programming environment used (tested with cray
+  and gnu on Daint).
+- Beware of allocating device buffers that exceed the value returned by the
+  CL_DEVICE_MAX_MEM_ALLOC_SIZE device information value. Otherwise, a -4 error
+  (CL_MEM_OBJECT_ALLOCATION_FAILURE) will appear. The maximum allocation size
+  is usually 1/4 of the device memory available.
+- On 'opcode3', OpenCL on GPUs is activated using the CUDA_VISIBLE_DEVICES
+  environment variable.
+- On 'opcode3', changing the values of the MV2_USE_CUDA and MV2_CUDA_* variable
+  family does not influence the achieved bandwidth, as in can be seen in plot
+  'opcode_cl.png'. The plotted setting groups 0...7 are as follows:
+
+        # Settings 0
+        #
+        # MV2_CUDA_SMP_IPC=0
+        # MV2_CUDA_NONBLOCKING_STREAMS=0
+        # MV2_CUDA_IPC=0
+        #
+        # Settings 1
+        #
+        # MV2_CUDA_SMP_IPC=1
+        # MV2_CUDA_NONBLOCKING_STREAMS=0
+        # MV2_CUDA_IPC=0
+        #
+        # Settings 2
+        #
+        # MV2_CUDA_SMP_IPC=0
+        # MV2_CUDA_NONBLOCKING_STREAMS=0
+        # MV2_CUDA_IPC=1
+        #
+        # Settings 3
+        #
+        # MV2_CUDA_SMP_IPC=1
+        # MV2_CUDA_NONBLOCKING_STREAMS=0
+        # MV2_CUDA_IPC=1
+        #
+        # Settings 4
+        #
+        # MV2_CUDA_SMP_IPC=0
+        # MV2_CUDA_NONBLOCKING_STREAMS=1
+        # MV2_CUDA_IPC=0
+        #
+        # Settings 5
+        #
+        # MV2_CUDA_SMP_IPC=1
+        # MV2_CUDA_NONBLOCKING_STREAMS=1
+        # MV2_CUDA_IPC=0
+        #
+        # Settings 6
+        #
+        # MV2_CUDA_SMP_IPC=0
+        # MV2_CUDA_NONBLOCKING_STREAMS=1
+        # MV2_CUDA_IPC=1
+        #
+        # Settings 7
+        #
+        # MV2_CUDA_SMP_IPC=1
+        # MV2_CUDA_NONBLOCKING_STREAMS=1
+        # MV2_CUDA_IPC=1
+
+- Regarding CUDA bandwidth on 'opcode', it is indeed influenced by the values
+  of these variables: MV2_CUDA_NONBLOCKING_STREAMS, MV2_CUDA_SMP_IPC and
+  MV2_CUDA_IPC. Two patterns emerge, as shown in plot 'opcode_cuda.png': for
+  message sizes up to 256KB, MV2_CUDA_IPC=0 shows best performance; whereas
+  for message size bigger than 256KB, MV2_CUDA_IPC=1 improves it.
+- Overall, on 'opcode3' (i.e., intranode transfers) OpenCL displays higher 
+  bandwidth than CUDA 5.5 and 6.0.
+- On 'daint' (i.e., internode transfers) both OpenCL and CUDA display similar 
+  bandwidth figures. However, for messages bigger than 1 MB, OpenCL shows a 
+  steady bandwidth, whereas CUDA it slightly drops for messages of 2MB and 4MB
+  is size (see 'dain_cl.png' and 'daint_cuda.png', respectively).
+
