@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $( hostname ) in
-    *daint*)
+    *daint* | *santis*)
         MODS="PrgEnv-gnu cudatoolkit"
         ;;
     *)
@@ -19,6 +19,6 @@ for m in ${MODS}; do
 done
 
 echo "# Building on $( hostname ) ..."
-nvcc -keep -Xcompiler ,\"-Wall\" test_case.cu -o test_case_with_warnings
+nvcc -Xcompiler ,\"-Wall\" test_case.cu -o test_case_with_warnings
 nvcc -x c++  -Xcompiler ,\"-Wall\" test_case.cu -o test_case_without_warnings
 

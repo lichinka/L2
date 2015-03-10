@@ -35,6 +35,19 @@
 
 #define root 0
 
+#define gpuErrchk(ans) { gpuAssert((ans), __FILE__, __LINE__); }
+inline 
+void gpuAssert(cudaError_t code, const char *file, int line)
+{
+   if (code != cudaSuccess) 
+   {
+      fprintf(stderr,"# GPUerror: %s %s %d\n", cudaGetErrorString(code), file, line);
+      exit(code);
+    }
+} 
+
+
+
 
 inline
 void printtime()
@@ -176,7 +189,7 @@ int main (int argc, char *argv[])
 
 		printtime();
 		printf("Allocating... "); fflush(stdout);
-		status = cudaMalloc( (void**)&d_A_m , size_A_m*sizeof(double));
+		gpuErrchk ( cudaMalloc( (void**)&d_A_m , size_A_m*sizeof(double)) );
 		if (status) printf("status error %d\n", status);
 		status = cudaMalloc( (void**)&d_B_m , size_B_m*sizeof(double)) ;
 		if (status) printf("status error %d\n", status);
@@ -207,7 +220,8 @@ int main (int argc, char *argv[])
 	addGPU[1] = addGPU0[1];
 	addGPU[2] = addGPU0[2];
 
-	int* Narray = (int) malloc(sizeof(int)*(numprocs + 1));
+	//int* Narray = (int) malloc(sizeof(int)*(numprocs + 1));
+	int* Narray = (int*) malloc(sizeof(int)*(numprocs + 1));
 	Narray[0] = 0; Narray[numprocs] = N;
 
 	int ii;

@@ -1,0 +1,29 @@
+#
+#	CPU_GFLOPS = 8.8
+#	GPU_GFLOPS = 300
+	GPU_FLAG   = USEGPU
+
+    #DEFINES = -DMPI
+	#DEFINES += -DVERBOSE_PRINT
+	#DEFINES += -DFERMI_DGEMM_VERBOSE_PRINT
+	DEFINES += -DLIBSCI
+	#DEFINES += -DINTERLEAVE
+
+	CC        = cc
+	CXX       = CC
+	NVCC      = nvcc
+	FORT      = gfortran
+
+	ARCH      = ar
+	ARCHFLAGS = cr
+	RANLIB    = ranlib
+
+	OPTS      = -O3 -g -fopenmp 
+	NVOPTS    = --compiler-options -fno-strict-aliasing  -arch sm_20 -DUNIX -O2
+	LDOPTS    =  
+
+    LIB       = -lcublas
+
+	#CUDADIR   = $(CUDATOOLKIT_HOME)
+	#LIBDIR   += -L$(CUDADIR)/lib64/
+	#INC       = -I$(CUDADIR)/include/
