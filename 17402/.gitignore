@@ -1,2 +1,4 @@
+*.swp
+compute.*.log
 10_mpi
 osu_bw_cl

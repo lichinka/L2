@@ -1,32 +1,27 @@
-#!/bin/bash
+#!/bin/bash -l
 
 #
-# all tests fail if:
+# turn on profiling
+# reference script available at
+#   https://bluewaters.ncsa.illinois.edu/openacc-and-cuda-profiling
+# counter reference available at
+#   http://www.cs.cmu.edu/afs/cs/academic/class/15668-s11/www/cuda-doc/Compute_Profiler.txt
 #
-#   export MPICH_RDMA_ENABLED_CUDA=1
-#
-# is set (error -33: CL_INVALID_DEVICE) on Cray systems with cray and gnu 
-# program environments. Failure occurs at context-creation time.
-# Moreover, setting this variable:
-#
-#   export MPICH_G2G_PIPELINE=16
-#
-# is ignored by the MPICH-cray implementation if the above RDMA is not set.
-#
-NPROC=2
-
-case $( hostname ) in
-    *daint*)
-        EXEC="aprun -n ${NPROC} -N 1"
-        ;;
-    *opcode*)
-        export CUDA_VISIBLE_DEVICES="0,4"
-        EXEC="mpiexec.hydra -n ${NPROC}"
-        ;;
-esac
+export COMPUTE_PROFILE=1
+export COMPUTE_PROFILE_CSV=1
+export COMPUTE_PROFILE_LOG=compute.$( hostname ).log
+export COMPUTE_PROFILE_CONFIG=compute.config
 
 #
-# execute
+# timed-transfer tests
 #
-${EXEC} ./mpi_g2g_test.sh
+#for i in $( seq 8 15 ); do
+#    NUM="$( echo "2^${i}" | bc -l )"
+#    echo "# Transfering ${NUM} doubles ..."
+#    ./10_mpi 0 gpu 0 ${NUM}
+#done
 
+#
+# OpenCL bandwidth test
+#
+./osu_bw_cl

@@ -61,10 +61,20 @@ int main(int argc, char** argv) {
     // init MPI environment
     MPI_Init(&argc, &argv);
     int task = -1;
+    int numprocs = 0;
    
-    MPI_Comm_rank(MPI_COMM_WORLD, &task);
+    MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+
+    // need two independent processes to communicate
+    if (numprocs != 2) 
+    {
+        if (task == 0)
+            std::cerr << "This test requires exactly two processes\n";
+        MPI_Finalize();
+        return EXIT_FAILURE;
+    }
+
     try {
-       
         //OpenCL init
         cl::Platform::get(&platforms);
         if(platforms.size() <= platformID) {
@@ -101,6 +111,7 @@ int main(int argc, char** argv) {
         cl::Buffer devRecvData(context,
                             CL_MEM_READ_ONLY | CL_MEM_ALLOC_HOST_PTR,
                             BYTE_SIZE);
+
         //process data on the GPU(set array elements to local MPI id)  
         const char CLCODE_INIT[] =
             "#pragma OPENCL EXTENSION cl_khr_fp64: enable\n"
