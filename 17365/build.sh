@@ -7,7 +7,7 @@ SRC=.
 
 case $( hostname ) in 
     *daint* | *santis*)
-        MODS="PrgEnv-gnu craype-accel-nvidia35"
+        MODS="PrgEnv-gnu craype-accel-nvidia35 cudatoolkit/6.5.14-1.0502.9613.6.1 cray-libsci_acc/3.1.1"
         CC=cc
         CXX=CC
         CLSDK=/opt/nvidia/cudatoolkit

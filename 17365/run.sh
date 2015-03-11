@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # all tests fail if:
@@ -16,23 +16,36 @@
 NPROC=2
 
 case $( hostname ) in
-    *daint*)
-        EXEC="aprun -n ${NPROC} -N 1"
+    *daint* | *santis*)
+        EXEC="aprun -N1 -n${NPROC}"
         ;;
     *opcode*)
         export CUDA_VISIBLE_DEVICES="0,4"
-        EXEC="mpiexec.hydra -n ${NPROC}"
+        EXEC="mpiexec.hydra -n${NPROC}"
+        ;;
+    *)
+        echo "Don't know how to execute here. Exiting."
+        exit 1;
         ;;
 esac
 
 #
+# query for OpenCL devices
+#
+if [ -n "$( ${EXEC} ./01_device_query | grep CUDA )" ]; then
+    echo "PASSED : Found CUDA devices with OpenCL support"
+else
+    echo "FAILED : No OpenCL accellerators found"
+fi
+
+#
 # timed-transfer tests
 #
-#for i in $( seq 13 15 ); do
-#    NUM="$( echo "2^${i}" | bc -l )"
-#    echo "# Transfering ${NUM} doubles ..."
-#    ${EXEC} ./10_mpi 0 gpu 0 ${NUM}
-#done
+for i in $( seq 13 15 ); do
+    NUM="$( echo "2^${i}" | bc -l )"
+    echo "# Transfering ${NUM} doubles ..."
+    ${EXEC} ./10_mpi 0 gpu 0 ${NUM}
+done
 
 #
 # bandwidth test
@@ -48,7 +61,7 @@ for streams in $( seq 0 1 ); do
             #
             # OpenCL bandwidth test
             #
-            #${EXEC} ./osu_bw_cl
+            ${EXEC} ./osu_bw_cl
             #
             # CUDA bandwidth test
             #

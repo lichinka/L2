@@ -1,4 +1,4 @@
-#define BENCHMARK "OSU MPI Bandwidth Test"
+#define BENCHMARK "OSU MPI Bandwidth Test for OpenCL"
 /*
 * Copyright (C) 2002-2010 the Network-Based Computing Laboratory
 * (NBCL), The Ohio State University.

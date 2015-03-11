@@ -1,4 +1,4 @@
-#define BENCHMARK "OSU MPI%s Bandwidth Test"
+#define BENCHMARK "OSU MPI%s Bandwidth Test for CUDA"
 /*
  * Copyright (C) 2002-2014 the Network-Based Computing Laboratory
  * (NBCL), The Ohio State University. 
