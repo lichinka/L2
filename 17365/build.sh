@@ -6,7 +6,7 @@
 SRC=.
 
 case $( hostname ) in 
-    *daint*)
+    *daint* | *santis*)
         MODS="PrgEnv-gnu craype-accel-nvidia35"
         CC=cc
         CXX=CC
@@ -36,7 +36,7 @@ done
 
 echo "Building on $( hostname ) ..."
 $CXX $SRC/01_device_query.cpp -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o 01_device_query
-$CC  $SRC/10_mpi.cpp -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o 10_mpi
+$CXX $SRC/10_mpi.cpp -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o 10_mpi
 $CC  -DPINNED $SRC/osu_bw_cl.c -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o osu_bw_cl
 $CC  -DPINNED $SRC/osu_bw_cuda.c -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o osu_bw_cuda
 
