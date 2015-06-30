@@ -1,0 +1,32 @@
+ Calling sequence of Main program (routines with * are not closed yet):
+ - Main_program: [ 5.540E-02,  1, ~*]
+   Subroutines:
+   - inputs_from_dict: [ 1.729E-02,  1,  31.22%*]
+     Subroutines:
+     - input_keys_fill_all: [ 1.367E-02,  1,  79.09%*]
+     - processor_id_per_node: [ 2.434E-03,  1,  14.08%]
+     - astruct_set_from_dict: [ 1.223E-03,  1,  7.07%]
+   - astruct_file_merge_to_dict: [ 1.061E-02,  1,  19.14%]
+   - read_input_dict_from_files: [ 8.509E-03,  1,  15.36%]
+     Subroutines:
+     - merge_input_file_to_dict: [ 3.152E-03,  1,  37.05%]
+   - mpi_environment_set: [ 3.323E-05,  1,  0.06%]
+ Global dictionary (size 9):
+   31196944:
+     [ atomnames, astruct_set_from_dict,  1,  1]
+   31551216:
+     [ astruct%iatype, astruct_set_from_dict,  280,  1]
+   31551504:
+     [ astruct%ifrztyp, astruct_set_from_dict,  280,  1]
+   31551792:
+     [ astruct%input_polarization, astruct_set_from_dict,  280,  1]
+   31552080:
+     [ astruct%rxyz, astruct_set_from_dict,  1680,  2]
+   31553776:
+     [ astruct%rxyz_int, astruct_set_from_dict,  1680,  2]
+   31555472:
+     [ astruct%ixyz_int, astruct_set_from_dict,  840,  2]
+   Timestamp of Profile initialization:
+     2015-06-30 13:09:18.316
+   Process Id:
+     19

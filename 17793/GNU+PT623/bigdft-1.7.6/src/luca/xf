@@ -1,0 +1,3167 @@
+CrayPat/X:  Version 6.2.3 Revision 13730 (xf 13540)  03/23/15 16:01:49
+
+Number of PEs (MPI ranks):   128
+                           
+Numbers of PEs per Node:       1  PE on each of  128  Nodes
+                           
+Numbers of Threads per PE:     7
+                           
+Number of Cores per Socket:    8
+
+Execution start time:  Tue Jun 30 13:34:19 2015
+
+System name and speed:  daint03 2601 MHz
+
+Current path to data file:
+  /scratch/daint/piccinal/17793/GNU+PT623/bigdft-1.7.6/src/luca/bigdft+pat+29698-2112t.ap2  (RTS)
+
+
+Notes for table 1:
+
+  Table option:
+    -O profile
+  Options implied by table option:
+    -d ti%@0.95,ti,imb_ti,imb_ti%,tr -b gr,fu,pe=HIDE,th=HIDE
+
+  Options for related tables:
+    -O profile_pe.th           -O profile_th_pe       
+    -O profile+src             -O load_balance        
+    -O callers                 -O callers+src         
+    -O calltree                -O calltree+src        
+
+  The Total value for Time, Calls is the sum for the Group values.
+  The Group value for Time, Calls is the sum for the Function values.
+  The Function value for Time, Calls is the avg for the PE values.
+  The PE value for Time, Calls is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+
+  Imbalance percentages are relative to a set of threads or PEs.
+  Other percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+  
+  The following groups were pruned due to thresholding:
+    ETC
+
+Table 1:  Profile by Function Group and Function
+
+  Time% |        Time | Imb. Time |  Imb. |     Calls |Group
+        |             |           | Time% |           | Function
+        |             |           |       |           |  PE=HIDE
+        |             |           |       |           |   Thread=HIDE
+       
+ 100.0% | 3731.601252 |        -- |    -- | 1035706.0 |Total
+|--------------------------------------------------------------------------
+|  76.0% | 2837.056015 | 33.308766 |  1.2% |       1.0 |USER
+||-------------------------------------------------------------------------
+||  76.0% | 2837.056015 | 33.308766 |  1.2% |       1.0 |main
+||=========================================================================
+|  14.9% |  557.774056 |        -- |    -- | 1026754.0 |OPENCL
+||-------------------------------------------------------------------------
+||  10.6% |  395.781208 |  5.502165 |  1.4% |   18144.0 |clEnqueueReadBuffer
+||   1.9% |   71.295083 | 35.482961 | 33.5% |      17.0 |clGetPlatformIDs
+||   1.8% |   67.439886 |  0.357764 |  0.5% |    6211.0 |clEnqueueWriteBuffer
+||=========================================================================
+|   6.0% |  222.943166 |        -- |    -- |    4633.0 |MPI
+||-------------------------------------------------------------------------
+||   2.2% |   80.420801 |  0.541188 |  0.7% |     191.0 |mpi_allgatherv_
+||   2.1% |   78.731512 |  0.004372 |  0.0% |     803.0 |mpi_alltoallv_
+||   1.5% |   55.597655 |  0.015194 |  0.0% |    2243.0 |mpi_allreduce_
+||=========================================================================
+|   3.0% |  113.761729 |        -- |    -- |    4311.0 |MPI_SYNC
+||-------------------------------------------------------------------------
+||   1.5% |   55.903570 | 27.214454 | 48.7% |    2243.0 |mpi_allreduce_(sync)
+||   1.0% |   37.891592 | 36.479880 | 96.3% |     175.0 |mpi_barrier_(sync)
+|==========================================================================
+
+===================  Observations and suggestions  ===================
+
+
+Number of accelerators used:  0 of 128
+
+=========================  End Observations  =========================
+
+Notes for table 2:
+
+  Table option:
+    -O load_imbalance_thread
+  Options implied by table option:
+    -d max_ti,imb_ti,imb_ti% -b th,pe=HIDE
+
+
+  Imbalance percentages are relative to a set of threads or PEs.
+
+Table 2:  Load Imbalance by Thread
+
+   Max. Time |     Imb. |  Imb. |Thread
+             |     Time | Time% | PE=HIDE
+            
+ 3731.601287 | 1.374259 |  0.0% |Total
+|----------------------------------------
+| 3732.975546 | 1.374259 |  0.0% |thread.0
+|========================================
+
+Notes for table 3:
+
+  Table option:
+    -O load_balance_m
+  Options implied by table option:
+    -d ti%@0.95,ti,Mc,Mm,Mz -b gr,pe=[mmm],th
+
+  Options for related tables:
+    -O load_balance_sm         -O load_balance_cm     
+
+  The Total value for each data item is the sum for the Group values.
+  The Group value for each data item is the avg for the PE values.
+  The PE value for each data item is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with Time% > 0.95.
+    (To set thresholds to zero, specify:  -T)
+  This table shows only the maximum, median, minimum PE entries,
+    sorted by Time.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+  
+  The following groups were pruned due to thresholding:
+    ETC
+
+Table 3:  Load Balance with MPI Message Stats (limited entries shown)
+
+  Time% |        Time |  MPI Msg |  MPI Msg Bytes |    Avg MPI |Group
+        |             |    Count |                |   Msg Size | PE=[mmm]
+        |             |          |                |            |  Thread
+       
+ 100.0% | 3731.601252 | 192475.0 | 331041803751.0 | 1719921.05 |Total
+|------------------------------------------------------------------------
+|  76.0% | 2837.056015 |      0.0 |            0.0 |         -- |USER
+||-----------------------------------------------------------------------
+||  76.9% | 2870.364781 |      0.0 |            0.0 |         -- |pe.49
+3|        |             |          |                |            | thread.0
+||  76.1% | 2840.352471 |      0.0 |            0.0 |         -- |pe.81
+3|        |             |          |                |            | thread.0
+||  74.3% | 2772.245037 |      0.0 |            0.0 |         -- |pe.121
+3|        |             |          |                |            | thread.0
+||=======================================================================
+|  14.9% |  557.774056 |      0.0 |            0.0 |         -- |OPENCL
+||-----------------------------------------------------------------------
+||  16.1% |  602.443169 |      0.0 |            0.0 |         -- |pe.34
+3|        |             |          |                |            | thread.0
+||  14.8% |  553.077737 |      0.0 |            0.0 |         -- |pe.76
+3|        |             |          |                |            | thread.0
+||  13.6% |  505.906398 |      0.0 |            0.0 |         -- |pe.101
+3|        |             |          |                |            | thread.0
+||=======================================================================
+|   6.0% |  222.943166 | 192475.0 | 331041803751.0 | 1719921.05 |MPI
+||-----------------------------------------------------------------------
+||   6.0% |  223.701150 | 192475.0 | 334069286343.0 | 1735650.27 |pe.0
+3|        |             |          |                |            | thread.0
+||   6.0% |  222.896362 | 192475.0 | 334068164039.0 | 1735644.44 |pe.42
+3|        |             |          |                |            | thread.0
+||   6.0% |  222.803627 | 192475.0 | 334069114311.0 | 1735649.38 |pe.11
+3|        |             |          |                |            | thread.0
+||=======================================================================
+|   3.0% |  113.761729 |      0.0 |            0.0 |         -- |MPI_SYNC
+||-----------------------------------------------------------------------
+||   5.9% |  221.813607 |      0.0 |            0.0 |         -- |pe.97
+3|        |             |          |                |            | thread.0
+||   2.7% |  101.649609 |      0.0 |            0.0 |         -- |pe.117
+3|        |             |          |                |            | thread.0
+||   1.2% |   44.344863 |      0.0 |            0.0 |         -- |pe.34
+3|        |             |          |                |            | thread.0
+|========================================================================
+
+Notes for table 4:
+
+  Table option:
+    -O mpi_callers
+  Options implied by table option:
+    -d Mm%@0.95,Mm,Mc@,Mb -b fu,ca,pe=[mmm],th=HIDE
+
+  Options for related tables:
+    -O mpi_sm_callers          -O mpi_coll_callers    
+
+  The Total value for each data item is the sum for the Function values.
+  The Function value for each data item is the sum for the Caller values.
+  The Caller value for each data item is the avg for the PE values.
+  The PE value for each data item is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  This table shows only lines with:
+    MPI Msg Bytes% > 0.95
+    MPI Msg Count > 0
+    (To set thresholds to zero, specify:  -T)
+  This table shows only the maximum, median, minimum PE entries,
+    sorted by MPI Msg Bytes.
+
+  Percentages at each level are of the Total for the program.
+    (For percentages relative to next level up, specify:
+      -s percent=r[elative])
+
+Table 4:  MPI Message Stats by Caller (limited entries shown)
+
+Function / Caller / PE=[mmm] / Thread=HIDE
+
+  
+=================================================
+  Total
+-------------------------------------------------
+  MPI Msg Bytes%                        100.0% 
+  MPI Msg Bytes                 331041803751.0 
+  MPI Msg Count                       192475.0 msgs
+  MsgSz <16 Count                       2040.0 msgs
+  16<= MsgSz <256 Count                 1273.0 msgs
+  256<= MsgSz <4KiB Count                 86.0 msgs
+  4KiB<= MsgSz <64KiB Count            59733.0 msgs
+  64KiB<= MsgSz <1MiB Count              103.0 msgs
+  1MiB<= MsgSz <16MiB Count           128838.0 msgs
+  16MiB<= MsgSz Count                    402.0 msgs
+=================================================
+  mpi_alltoallv_
+-------------------------------------------------
+  MPI Msg Bytes%                         72.8% 
+  MPI Msg Bytes                 240977213968.0 
+  MPI Msg Count                       102784.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count           102784.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v
+-------------------------------------------------
+  MPI Msg Bytes%                         36.5% 
+  MPI Msg Bytes                 120713279984.0 
+  MPI Msg Count                        51456.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            51456.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.5% 
+  MPI Msg Bytes                  51433726608.0 
+  MPI Msg Count                        21888.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21888.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389925376.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389564928.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389278208.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / toglobal_and_transpose_ / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295170560.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389925376.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389564928.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389278208.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295170560.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_transpose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v
+-------------------------------------------------
+  MPI Msg Bytes%                         36.3% 
+  MPI Msg Bytes                 120263933984.0 
+  MPI Msg Count                        51328.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            51328.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389925376.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389564928.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389278208.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / calculate_energy_and_gradient_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295170560.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                         15.3% 
+  MPI Msg Bytes                  50684816608.0 
+  MPI Msg Count                        21632.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            21632.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389612608.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389925376.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389564928.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47389278208.0 
+  MPI Msg Count                        20224.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            20224.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295204000.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295215616.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / hpsitopsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3295170560.0 
+  MPI Msg Count                         1408.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             1408.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / last_orthon_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.9% 
+  MPI Msg Bytes                   6298100256.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2688.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / check_communications_ / system_initialization_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998536256.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998575616.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998530560.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoallv_ / __communications_MOD_untranspose_v / first_orthon_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          1.8% 
+  MPI Msg Bytes                   5998493696.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_allgatherv_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.4% 
+  MPI Msg Bytes                  47636565912.0 
+  MPI Msg Count                        24448.0 msgs
+  MsgSz <16 Count                       1244.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               93.0 msgs
+  1MiB<= MsgSz <16MiB Count            23111.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.4% 
+  MPI Msg Bytes                  47636565912.0 
+  MPI Msg Count                        24448.0 msgs
+  MsgSz <16 Count                       1244.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               93.0 msgs
+  1MiB<= MsgSz <16MiB Count            23111.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47386932336.0 
+  MPI Msg Count                        24320.0 msgs
+  MsgSz <16 Count                       1238.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               92.0 msgs
+  1MiB<= MsgSz <16MiB Count            22990.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47386932336.0 
+  MPI Msg Count                        24320.0 msgs
+  MsgSz <16 Count                       1238.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               92.0 msgs
+  1MiB<= MsgSz <16MiB Count            22990.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47386932336.0 
+  MPI Msg Count                        24320.0 msgs
+  MsgSz <16 Count                       1238.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               92.0 msgs
+  1MiB<= MsgSz <16MiB Count            22990.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                         14.3% 
+  MPI Msg Bytes                  47386932336.0 
+  MPI Msg Count                        24320.0 msgs
+  MsgSz <16 Count                       1238.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               92.0 msgs
+  1MiB<= MsgSz <16MiB Count            22990.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                         13.4% 
+  MPI Msg Bytes                  44391329424.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                       1166.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               80.0 msgs
+  1MiB<= MsgSz <16MiB Count            21538.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                         13.4% 
+  MPI Msg Bytes                  44391329424.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                       1166.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               80.0 msgs
+  1MiB<= MsgSz <16MiB Count            21538.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                         13.4% 
+  MPI Msg Bytes                  44391329424.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                       1166.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               80.0 msgs
+  1MiB<= MsgSz <16MiB Count            21538.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                         13.4% 
+  MPI Msg Bytes                  44391329424.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                       1166.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               80.0 msgs
+  1MiB<= MsgSz <16MiB Count            21538.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                         13.4% 
+  MPI Msg Bytes                  44391329424.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                       1166.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               80.0 msgs
+  1MiB<= MsgSz <16MiB Count            21538.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                         14.2% 
+  MPI Msg Bytes                  46934857728.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            22784.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                         14.2% 
+  MPI Msg Bytes                  46934857728.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count            22784.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_allgatherv_ / full_local_potential_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          0.0% 
+  MPI Msg Bytes                            0.0 
+  MPI Msg Count                        22784.0 msgs
+  MsgSz <16 Count                      22784.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_allreduce_
+-------------------------------------------------
+  MPI Msg Bytes%                         10.2% 
+  MPI Msg Bytes                  33824188688.0 
+  MPI Msg Count                         2243.0 msgs
+  MsgSz <16 Count                        635.0 msgs
+  16<= MsgSz <256 Count                  762.0 msgs
+  256<= MsgSz <4KiB Count                 22.0 msgs
+  4KiB<= MsgSz <64KiB Count               21.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count              401.0 msgs
+  16MiB<= MsgSz Count                    402.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real
+-------------------------------------------------
+  MPI Msg Bytes%                          6.1% 
+  MPI Msg Bytes                  20082350216.0 
+  MPI Msg Count                          211.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    211.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / input_wf_memory_new_ / input_wf_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          3.8% 
+  MPI Msg Bytes                  12469506120.0 
+  MPI Msg Count                           20.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                     20.0 msgs
+=================================================
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.3% 
+  MPI Msg Bytes                   7612844096.0 
+  MPI Msg Count                          191.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    191.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.3% 
+  MPI Msg Bytes                   7572932064.0 
+  MPI Msg Count                          190.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.3% 
+  MPI Msg Bytes                   7572932064.0 
+  MPI Msg Count                          190.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.3% 
+  MPI Msg Bytes                   7572932064.0 
+  MPI Msg Count                          190.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          2.3% 
+  MPI Msg Bytes                   7572932064.0 
+  MPI Msg Count                          190.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_real / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          2.1% 
+  MPI Msg Bytes                   7093987680.0 
+  MPI Msg Count                          178.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double
+-------------------------------------------------
+  MPI Msg Bytes%                          4.1% 
+  MPI Msg Bytes                  13653746824.0 
+  MPI Msg Count                         1968.0 msgs
+  MsgSz <16 Count                        635.0 msgs
+  16<= MsgSz <256 Count                  762.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count               21.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count              359.0 msgs
+  16MiB<= MsgSz Count                    191.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.9% 
+  MPI Msg Bytes                  12896257552.0 
+  MPI Msg Count                          382.0 msgs
+  MsgSz <16 Count                        191.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    191.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.9% 
+  MPI Msg Bytes                  12828926456.0 
+  MPI Msg Count                          380.0 msgs
+  MsgSz <16 Count                        190.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.9% 
+  MPI Msg Bytes                  12828926456.0 
+  MPI Msg Count                          380.0 msgs
+  MsgSz <16 Count                        190.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.9% 
+  MPI Msg Bytes                  12828926456.0 
+  MPI Msg Count                          380.0 msgs
+  MsgSz <16 Count                        190.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          3.9% 
+  MPI Msg Bytes                  12828926456.0 
+  MPI Msg Count                          380.0 msgs
+  MsgSz <16 Count                        190.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    190.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+  mpi_allreduce_ / __wrapper_mpi_MOD_mpiallred_double / communicate_density_ / psitohpsi_ / kswfn_optimization_loop_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          3.6% 
+  MPI Msg Bytes                  12020953304.0 
+  MPI Msg Count                          356.0 msgs
+  MsgSz <16 Count                        178.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                    178.0 msgs
+=================================================
+=================================================
+  mpi_reduce_scatter_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5237436024.0 
+  MPI Msg Count                         2688.0 msgs
+  MsgSz <16 Count                        137.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count               10.0 msgs
+  1MiB<= MsgSz <16MiB Count             2541.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.5% 
+  MPI Msg Bytes                   4987802448.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                        131.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                9.0 msgs
+  1MiB<= MsgSz <16MiB Count             2420.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.5% 
+  MPI Msg Bytes                   4987802448.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                        131.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                9.0 msgs
+  1MiB<= MsgSz <16MiB Count             2420.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.5% 
+  MPI Msg Bytes                   4987802448.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                        131.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                9.0 msgs
+  1MiB<= MsgSz <16MiB Count             2420.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__
+-------------------------------------------------
+  MPI Msg Bytes%                          1.5% 
+  MPI Msg Bytes                   4987802448.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                        131.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                9.0 msgs
+  1MiB<= MsgSz <16MiB Count             2420.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main
+-------------------------------------------------
+  MPI Msg Bytes%                          1.5% 
+  MPI Msg Bytes                   4987802448.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                        131.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                9.0 msgs
+  1MiB<= MsgSz <16MiB Count             2420.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.0
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5273579520.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.64
+-------------------------------------------------
+  MPI Msg Bytes%                          1.6% 
+  MPI Msg Bytes                   5273579520.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count             2560.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_reduce_scatter_ / communicate_density_ / density_and_hpot_ / kswfn_post_treatments_ / cluster_ / __bigdft_run_MOD_call_bigdft / minenergyandforces_ / sbfgs_ / geopt_ / MAIN__ / main / pe.127
+-------------------------------------------------
+  MPI Msg Bytes%                          0.0% 
+  MPI Msg Bytes                            0.0 
+  MPI Msg Count                         2560.0 msgs
+  MsgSz <16 Count                       2560.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count                0.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+=================================================
+  mpi_alltoall_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3359375360.0 
+  MPI Msg Count                        59648.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count            59648.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoall_ / g_poissonsolver_
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3359375360.0 
+  MPI Msg Count                        59648.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count            59648.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+  mpi_alltoall_ / g_poissonsolver_ / __poisson_solver_MOD_h_potential
+-------------------------------------------------
+  MPI Msg Bytes%                          1.0% 
+  MPI Msg Bytes                   3359375360.0 
+  MPI Msg Count                        59648.0 msgs
+  MsgSz <16 Count                          0.0 msgs
+  16<= MsgSz <256 Count                    0.0 msgs
+  256<= MsgSz <4KiB Count                  0.0 msgs
+  4KiB<= MsgSz <64KiB Count            59648.0 msgs
+  64KiB<= MsgSz <1MiB Count                0.0 msgs
+  1MiB<= MsgSz <16MiB Count                0.0 msgs
+  16MiB<= MsgSz Count                      0.0 msgs
+=================================================
+
+Notes for table 5:
+
+  Table option:
+    -O program_time
+  Options implied by table option:
+    -d pt,hm -b pe=[mmm],th
+
+  The Total value for Process HiMem (MBytes), Process Time is the avg for the PE values.
+  The PE value for Process HiMem (MBytes), Process Time is the select0 for the Thread values.
+    (To specify different aggregations, see: pat_help report options s1)
+
+  The value shown for Process HiMem is calculated from information in
+  the /proc/self/numa_maps files captured near the end of the program. 
+  It is the total size of all pages, including huge pages, that were
+  actually mapped into physical memory from both private and shared
+  memory segments.
+  This table shows only the maximum, median, minimum PE entries,
+    sorted by Process Time.
+
+Table 5:  Wall Clock Time, Memory High Water Mark (limited entries shown)
+
+     Process |  Process |PE=[mmm]
+        Time |    HiMem | Thread
+             | (MBytes) |
+            
+ 3740.920584 |  431.511 |Total
+|--------------------------------
+| 3743.765570 |  904.133 |pe.101
+|             |          | thread.0
+| 3740.865827 |  370.301 |pe.103
+|             |          | thread.0
+| 3737.994280 |  368.164 |pe.111
+|             |          | thread.0
+|================================
+
+========================  Additional details  ========================
+
+Experiment:  trace
+
+Original path to data file:
+  /scratch/daint/piccinal/17793/GNU+PT623/bigdft-1.7.6/src/luca/bigdft+pat+29698-2112t.xf  (RTS)
+
+Original program:
+  /scratch/daint/piccinal/17793/GNU+PT623/bigdft-1.7.6/src/bigdft
+
+Instrumented with:  pat_build -w -g mpi,opencl bigdft
+
+Instrumented program:  ../bigdft+pat
+
+Program invocation:  ../bigdft+pat
+
+Exit Status:  0 for 128 PEs
+
+Intel sandybridge CPU  Family:  6  Model: 45  Stepping:  7
+
+Thread start functions:
+   128 threads:  __wrap_main
+     6 threads:  clGetExtensionFunctionAddress
+   762 threads:  clGetExtensionFunctionAddress
+
+Memory pagesize:  4 KiB
+
+Memory hugepagesize:  0 B
+
+Accelerator Model: Nvidia K20X Memory: 5.62 GB Frequency: 0.73 GHz
+
+Accelerator Driver Version: 340.87.0
+
+Programming environment:  GNU
+
+Runtime environment variables:
+  ATP_HOME=/opt/cray/atp/1.8.2
+  ATP_IGNORE_SIGTERM=1
+  ATP_MRNET_COMM_PATH=/opt/cray/atp/1.8.2/libexec/atp_mrnet_commnode_wrapper
+  ATP_POST_LINK_OPTS=-Wl,-L/opt/cray/atp/1.8.2/libApp/ 
+  CRAYOS_VERSION=5.2.40
+  CRAYPE_VERSION=2.4.0
+  CRAY_CUDATOOLKIT_VERSION=6.5.14-1.0502.9613.6.1
+  CRAY_FFTW_VERSION=3.3.4.3
+  FFTW_VERSION=3.3.4.3
+  GCC_VERSION=4.8.2
+  GNU_VERSION=4.8.2
+  MODULE_VERSION=3.2.10.3
+  MODULE_VERSION_STACK=3.2.10.3
+  MPICH_ABORT_ON_ERROR=1
+  MPICH_DIR=/opt/cray/mpt/7.2.2/gni/mpich2-gnu/48
+  MPICH_ENV_DISPLAY=1
+  MPICH_NO_BUFFER_ALIAS_CHECK=1
+  MPICH_VERSION_DISPLAY=1
+  OMP_DYNAMIC=FALSE
+  OMP_NUM_THREADS=8
+  PATH=/apps/ela/sandbox/jgp/coreutils/8.23/gnu_434/bin:/apps/ela/sandbox/jgp/hdfview/2.10.1/gnu/HDF_Group/HDFView/2.10.1/bin:/apps/daint/sandbox/jgp/perftools/src/621/opt/cray/perftools/6.2.1/bin:/apps/dora/sandbox/jgp/mc/4.8.13/gnu_434/bin:/apps/rosa/sandbox/jgp/app2/6.1.4/bin:/apps/ela/sandbox/jgp/DELETE/texlive/201404/gnu_434/bin/x86_64-linux:/apps/ela/sandbox/jgp/tmux/1.9a/gnu_434/bin:/apps/santis/sandbox/jgp/python/2.7.8/gnu_482-fPIC/bin:/apps/ela/sandbox/jgp/xclip/0.12/gnu_434/bin:/apps/ela/sandbox/jgp/SAVESPACE/svn/1.8.3/gnu_434/bin:/apps/ela/sandbox/jgp/grep/2.14/gnu_434/bin:/users/piccinal/KEEP/slurm:/apps/ela/sandbox/jgp/thunderbird/thunderbird:/apps/ela/sandbox/jgp/imagemagick/6.8.6/gnu_434/bin:/apps/ela/sandbox/jgp/SAVESPACE/git/1.8.5.2/bin:/apps/ela/sandbox/jgp/google/0.9.14/bin:/apps/pilatus/sandbox/jgp/mutt/src/mutt-1.5.21:/apps/ela/sandbox/jgp/SAVESPACE/doxygen/1.8.4/gnu_434/bin:/apps/ela/eclipse:/apps/ela/sandbox/jgp/rdesktop/1.7.0/gnu_452/bin:/apps/rosa/sandbox/jgp/adobe/9.5.1/Adobe/Reader9/bin:/apps/pilatus/sandbox/jgp/vim/7.3/gnu_434/bin:/apps/pilatus/sandbox/jgp/php5/5.4.7/gnu_434/bin:/apps/rosa/sandbox/jgp/hg/src/mercurial-2.2-rc:/apps/rosa/sandbox/jgp/gnuplot/4.6.5/gnu_434/bin:/apps/rothorn/ipm/src/pl241src/src:/apps/rothorn/sandbox/jgp/perl/5.14.2/gnu_434/bin:/opt/cray/perftools/6.2.3/bin:/opt/cray/papi/5.4.0.1/bin:/opt/cray/rca/1.0.0-2.0502.53711.3.127.ari/bin:/opt/cray/fftw/3.3.4.3/sandybridge/bin:/opt/nvidia/cudatoolkit6.5/6.5.14-1.0502.9613.6.1/bin:/opt/nvidia/cudatoolkit6.5/6.5.14-1.0502.9613.6.1/libnvvp:/opt/cray/pmi/5.0.7-1.0000.10678.155.25.ari/bin:/opt/toolworks/totalview.8.11.0-0/bin:/opt/totalview-support/1.1.4/bin:/opt/gcc/4.8.2/bin:/apps/daint/5.2.UP02/ddt/5.0.1-42607/./libexec:/apps/daint/5.2.UP02/ddt/5.0.1-42607/./bin:/opt/cray/mpt/7.2.2/gni/bin:/opt/slurm/munge/bin:/opt/slurm/default/bin:/opt/cray/craype/2.4.0/bin:/opt/cray/llm/default/bin:/opt/cray/llm/default/etc:/opt/cray/xpmem/0.1-2.0502.55507.3.2.ari/bin:/opt/cray/dmapp/7.0.1-1.0502.9501.5.219.ari/bin:/opt/cray/ugni/5.0-1.0502.9685.4.24.ari/bin:/opt/cray/udreg/2.3.2-1.0502.9275.1.12.ari/bin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.31.1_1.0502.8394.10.1-1.0502.17198.8.51/sbin:/opt/cray/lustre-cray_ari_s/2.5_3.0.101_0.31.1_1.0502.8394.10.1-1.0502.17198.8.51/bin:/opt/cray/alps/5.2.1-2.0502.9041.11.6.ari/sbin:/opt/cray/alps/5.2.1-2.0502.9041.11.6.ari/bin:/opt/cray/sdb/1.0-1.0502.55976.5.27.ari/bin:/opt/cray/nodestat/2.2-1.0502.53712.3.109.ari/bin:/opt/modules/3.2.10.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/bin/X11:/usr/X11R6/bin:/usr/games:/usr/lib/mit/bin:/usr/lib/mit/sbin:.:/usr/lib/qt3/bin:/opt/cray/bin:/apps/ela/system/bin:/apps/common/system/bin:/apps/daint/system/bin:/opt/cray/nvidia/default/bin:/apps/rosa/sandbox/jgp/oo/4.0.3.3/program:/apps/ela/system/bin:/apps/common/system/bin:/apps/daint/system/bin
+  PAT_BUILD_PAPI_BASEDIR=/opt/cray/papi/5.4.0.1
+  PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+  PERFTOOLS_VERSION=6.2.3
+  XTOS_VERSION=5.2.40
+
+Report time environment variables:
+    CRAYPAT_ROOT=/opt/cray/perftools/6.2.3
+    PAT_REPORT_PRUNE_NAME=_cray$mt_start_,__cray_hwpc_,f_cray_hwpc_,cstart,__pat_,pat_region_,PAT_,OMP.slave_loop,slave_entry,_new_slave_entry,__libc_start_main,_start,__start,start_thread,__wrap_,UPC_ADIO_,_upc_,upc_,__caf_,__pgas_,syscall
+
+Report command line options:  <none>
+
+Operating system:
+  Linux 3.0.101-0.31.1_1.0502.8394-cray_ari_c #1 SMP Wed Sep 10 04:09:26 UTC 2014
+
+Estimated minimum overhead per call of a traced function,
+  which was subtracted from the data shown in this report
+  (for raw data, use the option:  -s overhead=include):
+    Time  0.146  microsecs
+
+Number of traced functions:  792
+
+  (To see the list, specify:  -s traced_functions=show)
+

@@ -1,0 +1,73 @@
+#!/bin/bash
+##SBATCH --nodes=128
+#
+#SBATCH --ntasks=128               # -n
+#SBATCH --ntasks-per-node=1      # -N
+#SBATCH --cpus-per-task=8       # -d
+#SBATCH --ntasks-per-core=1 # -j    # --ntasks-per-core / -j"
+#
+#SBATCH --time=00:90:00
+#SBATCH --job-name="staff"
+#SBATCH --output=o_bigdft.1024.1.8.1.daint.
+#SBATCH --error=o_bigdft.1024.1.8.1.daint.
+##SBATCH --account=usup
+####SBATCH --reservation=maint
+
+echo '# -----------------------------------------------'
+ulimit -c unlimited
+ulimit -s unlimited
+ulimit -a |awk '{print "# "$0}'
+echo '# -----------------------------------------------'
+
+echo '# -----------------------------------------------'
+# export MPICH_CPUMASK_DISPLAY=1        # = core of the rank
+# The distribution of MPI tasks on the nodes can be written to the standard output file by setting environment variable 
+# export MPICH_RANK_REORDER_DISPLAY=1   # = node of the rank
+export MALLOC_MMAP_MAX_=0
+export MALLOC_TRIM_THRESHOLD_=536870912
+export OMP_NUM_THREADS=8
+export MPICH_VERSION_DISPLAY=1
+export MPICH_ENV_DISPLAY=1
+#export PAT_RT_CALLSTACK_BUFFER_SIZE=50000000 # > 4194312
+#export OMP_STACKSIZE=500M
+#
+# export PAT_RT_EXPFILE_MAX=99999
+# export PAT_RT_SUMMARY=0
+#
+#export PAT_RT_TRACE_FUNCTION_MAX=1024 
+#export PAT_RT_EXPFILE_PES
+#export MPICH_PTL_MATCH_OFF=1
+#export MPICH_PTL_OTHER_EVENTS=4096
+#export MPICH_MAX_SHORT_MSG_SIZE=32000
+#export MPICH_PTL_UNEX_EVENTS=180000
+#export MPICH_UNEX_BUFFER_SIZE=284914560
+#export MPICH_COLL_OPT_OFF=mpi_allgather
+#export MPICH_COLL_OPT_OFF=mpi_allgatherv
+export MPICH_NO_BUFFER_ALIAS_CHECK=1
+#NEW export MPICH_MPIIO_STATS=1
+echo '# -----------------------------------------------'
+
+
+echo '# -----------------------------------------------'
+echo "# SLURM_JOB_NODELIST = $SLURM_JOB_NODELIST"
+echo "# submit command : \"/users/piccinal/KEEP/slurm/sbatch.sh daint 90 ../bigdft 128 1 8    -Ausup\""
+grep aprun runme.slurm.daint
+echo "# SLURM_JOB_NUM_NODES = $SLURM_JOB_NUM_NODES"
+echo "# SLURM_JOB_ID = $SLURM_JOB_ID"
+echo "# SLURM_JOBID = $SLURM_JOBID"
+echo "# SLURM_NTASKS = $SLURM_NTASKS / -n --ntasks"
+echo "# SLURM_NTASKS_PER_NODE = $SLURM_NTASKS_PER_NODE / -N --ntasks-per-node"
+echo "# SLURM_CPUS_PER_TASK = $SLURM_CPUS_PER_TASK / -d --cpus-per-task"
+echo "# OMP_NUM_THREADS = $OMP_NUM_THREADS / -d "
+echo "# SLURM_NTASKS_PER_CORE = $SLURM_NTASKS_PER_CORE / -j1 --ntasks-per-core"
+# sacct --format=JobID,NodeList%100 -j $SLURM_JOB_ID
+echo '# -----------------------------------------------'
+
+
+date
+set +x
+/usr/bin/time -p  aprun -n 128 -N 1 -d 8 -j 1  ../bigdft  
+# mv wave_tank1.h5 128.wave_tank1.h5
+
+
+

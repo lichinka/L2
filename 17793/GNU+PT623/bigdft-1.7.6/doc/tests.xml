@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="iso-8859-15"?>
+<bigdft-tests>
+<dir name="DFT">
+/*! @file
+<test name="cubic">
+/*! @file
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.dft" />
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.dft" />
+  <input name="input.occ" />
+  <input name="input.yaml" />
+  <input name="input.kpt" />
+  <input name="input.dft" />
+  <input name="input.kpt" />
+  <input name="input.dft" />
+  <input name="input.mix" />
+  <input name="input.perf" />
+  <input name="input.dft" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.dft" />
+  <input name="input.mix" />
+  <input name="input.perf" />
+  <input name="input.occup" />
+  <input name="input.dft" />
+  <input name="input.mix" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.dft" />
+  <input name="input.dft" />
+  <input name="input.mix" />
+  <input name="input.dft" />
+  <input name="input.dft" />
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.kpt" />
+  <input name="input.dft" />
+  <input name="input.occup" />
+  <input name="input.dft" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.ascii" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.ascii" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="linear">
+/*! @file
+  <input name="input.perf" />
+  <input name="input.yaml" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.geopt" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.yaml" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.occup" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.occup" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin.old" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.lin" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.int" />
+  <posinp name="posinp.fix" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.ascii" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="postSCF">
+/*! @file
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <input name="input.tddft" />
+  <input name="input.dft" />
+  <posinp name="posinp.xyz" />
+  <posinp name="posinp.xyz" />
+</test>
+</dir>
+<dir name="libs">
+/*! @file
+<test name="CUDA">
+/*! @file
+</test>
+<test name="IO-wf">
+/*! @file
+  <input name="input.kpt" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="OP2P">
+not documented yet.
+</test>
+<test name="OpenCL">
+/*! @file
+</test>
+<test name="coordinatetransform">
+not documented yet.
+  <posinp name="posinp2.xyz" />
+  <posinp name="posinp1.xyz" />
+  <posinp name="posinp3.xyz" />
+  <posinp name="posinp5.xyz" />
+  <posinp name="posinp4.xyz" />
+  <posinp name="posinp5.fix" />
+</test>
+<test name="dsygv">
+not documented yet.
+</test>
+<test name="fft">
+/*! @file
+</test>
+<test name="ftypes">
+/*! @file
+  <posinp name="posinp.ascii" />
+</test>
+<test name="overlapgeneral">
+not documented yet.
+  <input name="inputdata2.fake" />
+  <input name="inputdata3.fake" />
+  <input name="inputdata1.fake" />
+</test>
+<test name="psp">
+not documented yet.
+</test>
+<test name="wrappers">
+not documented yet.
+  <posinp name="posinp.ref.yaml" />
+</test>
+<test name="xc">
+not documented yet.
+</test>
+<test name="xcPSolver">
+not documented yet.
+</test>
+</dir>
+<dir name="overDFT">
+/*! @file
+<test name="BigDFT2Wannier">
+not documented yet.
+  <input name="input.inter" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="C6H6-freq">
+not documented yet.
+  <input name="input.freq" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="GEOPT-BFGS">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="GEOPT-LBFGS">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="GEOPT-all">
+not documented yet.
+</test>
+<test name="GEOPT-newIG">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="H2-freq">
+not documented yet.
+  <input name="input.freq" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="H2O-slab">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="IO-wf">
+not documented yet.
+</test>
+<test name="MH_taskgroups">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+</test>
+<test name="MINHOP">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+</test>
+<test name="NEB">
+not documented yet.
+  <input name="input.neb" />
+  <posinp name="posinp1.xyz" />
+  <posinp name="posinp5.xyz" />
+</test>
+<test name="NH3">
+not documented yet.
+  <input name="input.geopt" />
+  <input name="input.dft" />
+  <posinp name="posinp.ascii" />
+</test>
+<test name="SPLSAD">
+not documented yet.
+  <input name="input.splsad" />
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp2.xyz" />
+  <posinp name="posinp.xyz" />
+</test>
+<test name="XabsCheb">
+not documented yet.
+</test>
+<test name="XabsLanc">
+not documented yet.
+</test>
+<test name="Xabsb2B">
+not documented yet.
+</test>
+<test name="testforces">
+not documented yet.
+  <input name="input.dft" />
+  <input name="input.perf" />
+  <posinp name="posinp.xyz" />
+</test>
+</dir>
+</bigdft-tests>

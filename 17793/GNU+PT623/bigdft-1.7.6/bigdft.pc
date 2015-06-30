@@ -1,0 +1,11 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libbigdft
+Description: Library for DFT calculation over wavelets.
+Requires: 
+Version: 1.7.6
+Libs: -L${libdir} @LIBS_DEPENDENCIES@  
+Cflags: -I${includedir}

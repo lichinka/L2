@@ -1,0 +1,31 @@
+ dft:
+   hgrids: [0.5, 0.5, 0.5]
+   rmult: [6.0, 14.0]
+   ixc: 1
+   nspin: 1 
+   mpol: 0
+   gnrm_cv: 1.e-5
+   nrepmax: 1
+   itermax: 25
+   ncong: 5
+   idsx: 6
+   disablesym: Yes
+ geopt:
+   method: SBFGS
+   ncount_cluster_x: 20
+   frac_fluct: 5.0
+   forcemax: 5.E-4
+   betax: 1.5
+   nhistx: 10
+   cutoffratio: 1e-4
+   steepthresh: .1
+   trustr: 0.2
+   maxrise: 1e-6
+ perf:
+   accel: NO    # OCLGPU
+   unblock_comms: DEN
+##   unblock_comms: POT
+   projrad: 8.000
+   rho_commun: MIX
+   inguess_geopt: 1
+   verbosity: 1

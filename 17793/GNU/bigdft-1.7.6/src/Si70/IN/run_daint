@@ -1,0 +1,19 @@
+#!/bin/sh
+#SBATCH --job-name="Si70"
+#SBATCH --ntasks=35
+#SBATCH --ntasks-per-node=2
+#SBATCH --cpus-per-task=4
+#SBATCH --time=00:10:00
+#SBATCH -C gpumodedefault
+
+module switch PrgEnv-cray PrgEnv-intel
+module load cudatoolkit
+
+export OMP_NUM_THREADS=4
+
+##aprun -B -cc none ./bigdft
+aprun  -n 35 -N 2 -d 4 -cc none ./bigdft
+
+exit
+
+

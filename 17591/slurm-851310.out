@@ -1,0 +1,39 @@
+Tue Apr 14 13:46:05 2015
+Starting...
+Tue Apr 14 13:46:05 2015
+Tue Apr 14 13:46:05 2015
+Starting...
+Starting...
+Tue Apr 14 13:46:05 2015
+Starting...
+Running cublas on 4000x4000x4000 with 4 PEs...
+Tue Apr 14 13:46:05 2015
+Allocating... ok
+Tue Apr 14 13:46:05 2015
+Copying... ok
+
+Tue Apr 14 13:46:05 2015
+4000x4000x4000 DGEMM -- 1 PE, overall Gflops = 1129.085057 0.113366 s.
+1- pid 0, my Gflops = 1129.085057 0.113366 s.
+
+Tue Apr 14 13:46:05 2015
+4000x4000x4000 DGEMM -- 4 PE, 2- pid 3, my Gflops = 197.750011 0.647282 s.
+2- pid 2, my Gflops = 302.447491 0.423214 s.
+2- pid 1, my Gflops = 239.116008 0.535305 s.
+overall Gflops = 197.745422 0.647297 s.
+2- pid 0, my Gflops = 1133.897346 0.112885 s.
+
+Tue Apr 14 13:46:06 2015
+4000x1000x4000 DGEMM -- 1 PE, overall Gflops = 1119.199219 0.028592 s.
+3- pid 0, my Gflops = 1119.199219 0.028592 s.
+
+
+
+
+Tue Apr 14 13:46:06 2015
+4000x1000x4000 DGEMM -- 4 PE, overall Gflops = 1121.340485 0.114149 s.
+4- pid 0, my Gflops = 578.671852 0.055299 s.
+4- pid 1, my Gflops = 280.349760 0.114143 s.
+4- pid 2, my Gflops = 372.482476 0.085910 s.
+4- pid 3, my Gflops = 547.925864 0.058402 s.
+Application 4007884 resources: utime ~5s, stime ~1s, Rss ~583804, inblocks ~1240, outblocks ~1461

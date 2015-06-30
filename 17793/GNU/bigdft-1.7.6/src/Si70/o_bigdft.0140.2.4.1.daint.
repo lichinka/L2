@@ -1,0 +1,1793 @@
+# -----------------------------------------------
+# core file size          (blocks, -c) unlimited
+# data seg size           (kbytes, -d) unlimited
+# scheduling priority             (-e) 0
+# file size               (blocks, -f) unlimited
+# pending signals                 (-i) 257641
+# max locked memory       (kbytes, -l) 64
+# max memory size         (kbytes, -m) 268435456
+# open files                      (-n) 8192
+# pipe size            (512 bytes, -p) 8
+# POSIX message queues     (bytes, -q) 819200
+# real-time priority              (-r) 0
+# stack size              (kbytes, -s) unlimited
+# cpu time               (seconds, -t) unlimited
+# max user processes              (-u) 257641
+# virtual memory          (kbytes, -v) 26392960
+# file locks                      (-x) unlimited
+# -----------------------------------------------
+# -----------------------------------------------
+# -----------------------------------------------
+# -----------------------------------------------
+# SLURM_JOB_NODELIST = nid00[551-568]
+# submit command : "/users/piccinal/KEEP/slurm/sbatch.sh daint 10 ../bigdft 35 2 4    -Ausup"
+grep aprun runme.slurm.daint
+/usr/bin/time -p  aprun -n 35 -N 2 -d 4 -j 1  ../bigdft  
+# SLURM_JOB_NUM_NODES = 18
+# SLURM_JOB_ID = 1088312
+# SLURM_JOBID = 1088312
+# SLURM_NTASKS = 35 / -n --ntasks
+# SLURM_NTASKS_PER_NODE = 2 / -N --ntasks-per-node
+# SLURM_CPUS_PER_TASK = 4 / -d --cpus-per-task
+# OMP_NUM_THREADS = 4 / -d 
+# SLURM_NTASKS_PER_CORE = 1 / -j1 --ntasks-per-core
+# -----------------------------------------------
+Tue Jun 30 13:09:15 CEST 2015
+PE 0: MPICH processor detected:
+PE 0:   Intel Sandy Bridge (6:45:7) (family:model:stepping)
+MPI VERSION : CRAY MPICH version 7.2.2 (ANL base 3.1.2)
+BUILD INFO  : Built Tue May 26  8:45:20 2015 by jemison (svn rev 10686) MT-G CPR-R
+PE 0: MPICH environment settings:
+PE 0:   MPICH_ENV_DISPLAY          = 1
+PE 0:   MPICH_VERSION_DISPLAY      = 1
+PE 0:   MPICH_ABORT_ON_ERROR       = 1
+PE 0:   MPICH_CPUMASK_DISPLAY      = 0
+PE 0:   MPICH_RANK_REORDER_METHOD  = 1
+PE 0:   MPICH_RANK_REORDER_DISPLAY = 0
+PE 0:   MPICH_MEMCPY_MEM_CHECK     = 0
+PE 0:   MPICH_USE_SYSTEM_MEMCPY    = 0
+PE 0:   MPICH_OPTIMIZED_MEMCPY     = 1
+PE 0:   MPICH_NO_BUFFER_ALIAS_CHECK= 1
+PE 0:   MPICH_COLL_SYNC            = 0
+PE 0:   MPICH_MSG_QUEUE_DBG        = 0
+PE 0: MPICH/MPMD environment settings:
+PE 0:   MPICH_DMAPP_APP_IS_WORLD   = 0
+PE 0: MPICH/GPU environment settings:
+PE 0:   MPICH_RDMA_ENABLED_CUDA    = 0
+PE 0:   MPICH_G2G_PIPELINE         = 0
+PE 0:   MPICH_NO_GPU_DIRECT        = 0
+PE 0: MPICH/SMP environment settings:
+PE 0:   MPICH_SMP_SINGLE_COPY_OFF  = 0
+PE 0:   MPICH_SMP_SINGLE_COPY_SIZE = 8192
+PE 0: MPICH/GNI environment settings:
+PE 0:           MPICH_GNI_RECV_CQ_SIZE = 40960
+PE 0:          MPICH_GNI_LOCAL_CQ_SIZE = 8192
+PE 0:            MPICH_GNI_DEBUG_LEVEL = 0
+PE 0:    MPICH_GNI_MAX_VSHORT_MSG_SIZE = 8144
+PE 0:     MPICH_GNI_MAX_EAGER_MSG_SIZE = 8192
+PE 0:               MPICH_GNI_NUM_BUFS = 64
+PE 0:             MPICH_GNI_NUM_MBOXES = -1
+PE 0:       MPICH_GNI_MBOXES_PER_BLOCK = 4096
+PE 0:         MPICH_GNI_RDMA_THRESHOLD = 1024
+PE 0:          MPICH_GNI_RCVCQ_PROCNUM = 1
+PE 0:    MPICH_GNI_NDREG_ENTRIES(req.) = 999
+PE 0:          MPICH_GNI_NDREG_MAXSIZE = 4194304
+PE 0:        MPICH_GNI_MALLOC_FALLBACK = 0
+PE 0:          MPICH_GNI_NDREG_LAZYMEM = LAZY_ALL
+PE 0:          MPICH_GNI_DMAPP_INTEROP = DISABLED
+PE 0:           MPICH_GNI_DYNAMIC_CONN = ENABLED
+PE 0:        MPICH_GNI_MAX_NUM_RETRIES = 16
+PE 0:              MPICH_GNI_FORK_MODE = PARTCOPY
+PE 0:         MPICH_GNI_MBOX_PLACEMENT = DEFAULT
+PE 0:        MPICH_GNI_VC_MSG_PROTOCOL = MBOX
+PE 0:      MPICH_GNI_BTE_MULTI_CHANNEL = ENABLED
+PE 0:           MPICH_GNI_LMT_GET_PATH = ENABLED
+PE 0:               MPICH_GNI_LMT_PATH = ENABLED
+PE 0:     MPICH_NEMESIS_ASYNC_PROGRESS = 0
+PE 0: MPICH_GNI_ASYNC_PROGRESS_TIMEOUT = -1
+PE 0:       MPICH_GNI_DATAGRAM_TIMEOUT = -1
+PE 0:            MPICH_GNI_FMA_SHARING = 1
+PE 0:            MPICH_GNI_MDD_SHARING = ENABLED
+PE 0:          MPICH_GNI_HUGEPAGE_SIZE = 2M
+PE 0:          MPICH_GNI_USE_PCI_IOMMU = 0
+PE 0:            MPICH_GNI_CQE_BACKOFF = 500
+PE 0:           MPICH_GNI_ROUTING_MODE = ADAPTIVE_0
+PE 0:    MPICH_GNI_USE_UNASSIGNED_CPUS = ENABLED
+PE 0:        MPICH_GNI_MEM_DEBUG_FNAME = 
+PE 0: MPICH/COLLECTIVE environment settings:
+PE 0:   MPICH_COLL_OPT_OFF         = 0
+PE 0:   MPICH_COLL_BAL_INJECTION   = auto
+PE 0:   MPICH_USE_DMAPP_COLL       = 0
+PE 0:   MPICH_DMAPP_COLL_RADIX     = 64
+PE 0:   MPICH_DMAPP_HW_CE          = Disabled
+PE 0:   MPICH_BCAST_ONLY_TREE      = 1
+PE 0:   MPICH_BCAST_INTERNODE_RADIX= 4
+PE 0:   MPICH_BCAST_INTRANODE_RADIX= 4
+PE 0:   MPICH_ALLTOALL_SHORT_MSG   = 32-2048
+PE 0:   MPICH_ALLTOALLV_THROTTLE   = 8
+PE 0:   MPICH_ALLGATHER_VSHORT_MSG = 1024-8192
+PE 0:   MPICH_ALLGATHERV_VSHORT_MSG= 1024-8192
+PE 0:   MPICH_GATHERV_SHORT_MSG    = 16384
+PE 0:  MPICH_IGATHERV_RAND_COMMSIZE= 2048
+PE 0:  MPICH_IGATHERV_RAND_RECVLIST= 0
+PE 0:   MPICH_SCATTERV_SHORT_MSG   = 2048-8192
+PE 0:   MPICH_SCATTERV_SYNCHRONOUS = 0
+PE 0:  MPICH_ALLREDUCE_MAX_SMP_SIZE= 262144
+PE 0:   MPICH_ALLREDUCE_BLK_SIZE   = 716800
+PE 0:   MPICH_ALLREDUCE_NO_SMP     = 0
+PE 0:   MPICH_REDUCE_NO_SMP        = 0
+PE 0:   MPICH_SHARED_MEM_COLL_OPT  = 0
+PE 0: MPICH/RMA environment settings:
+PE 0:   MPICH_RMA_OVER_DMAPP       = 0
+PE 0:   MPICH_RMA_NO_XPMEM         = 0
+PE 0:   MPICH_RMA_USE_NETWORK_AMO  = 0
+PE 0: MPICH MPIIO environment settings:
+PE 0:   MPICH_MPIIO_HINTS_DISPLAY          = 0
+PE 0:   MPICH_MPIIO_HINTS                  = NULL
+PE 0:   MPICH_MPIIO_ABORT_ON_RW_ERROR      = disable
+PE 0:   MPICH_MPIIO_CB_ALIGN               = 2
+PE 0: MPICH MPIIO statistics environment settings:
+PE 0:   MPICH_MPIIO_STATS                  = 0
+PE 0: MPICH Thread Safety settings:
+PE 0:   MPICH_MAX_THREAD_SAFETY    = serialized
+PE 0:   rank 0 required = funneled, was provided = funneled
+PE 0: MPICH CRAY memory report settings:
+PE 0:   MPICH_MEMORY_REPORT      = 0
+PE 0:   MPICH_MEMORY_REPORT_FILE = stderr
+PE 0: MPICH/UGNI COLLECTIVE environment settings:
+PE 0:   MPICH_GNI_COLL_OPT_OFF     = 0
+PE 0:   MPICH_GNI_CT_OFF           = 1
+PE 0:   MPICH_GNI_A2A_BLK_SIZE     = 2048-65536
+PE 0:   MPICH_GNI_A2A_FMA_SYNC_FREQ= 1-1024
+PE 0:   MPICH_GNI_A2A_BTE_SYNC_FREQ= 8-1024
+PE 0:   MPICH_GNI_A2A_BTE_THRESHOLD= 4096-8192
+---
+ Code logo:
+   "__________________________________ A fast and precise DFT wavelet code
+   |     |     |     |     |     |
+   |     |     |     |     |     |      BBBB         i       gggggg
+   |_____|_____|_____|_____|_____|     B    B               g
+   |     |  :  |  :  |     |     |    B     B        i     g
+   |     |-0+--|-0+--|     |     |    B    B         i     g        g
+   |_____|__:__|__:__|_____|_____|___ BBBBB          i     g         g
+   |  :  |     |     |  :  |     |    B    B         i     g         g
+   |--+0-|     |     |-0+--|     |    B     B     iiii     g         g
+   |__:__|_____|_____|__:__|_____|    B     B        i      g        g
+   |     |  :  |  :  |     |     |    B BBBB        i        g      g
+   |     |-0+--|-0+--|     |     |    B        iiiii          gggggg
+   |_____|__:__|__:__|_____|_____|__BBBBB
+   |     |     |     |  :  |     |                           TTTTTTTTT
+   |     |     |     |--+0-|     |  DDDDDD          FFFFF        T
+   |_____|_____|_____|__:__|_____| D      D        F        TTTT T
+   |     |     |     |  :  |     |D        D      F        T     T
+   |     |     |     |--+0-|     |D         D     FFFF     T     T
+   |_____|_____|_____|__:__|_____|D___      D     F         T    T
+   |     |     |  :  |     |     |D         D     F          TTTTT
+   |     |     |--+0-|     |     | D        D     F         T    T
+   |_____|_____|__:__|_____|_____|          D     F        T     T
+   |     |     |     |     |     |         D               T    T
+   |     |     |     |     |     |   DDDDDD       F         TTTT
+   |_____|_____|_____|_____|_____|______                    www.bigdft.org   "
+
+ Reference Paper                       : The Journal of Chemical Physics 129, 014109 (2008)
+ Version Number                        : 1.7.6
+ Timestamp of this run                 : 2015-06-30 13:09:18.352
+ Root process Hostname                 : nid00551
+ Number of MPI tasks                   :  35
+ OpenMP parallelization                :  No
+ MPI tasks of root process node        :  2
+  #------------------------------------------------------------------ Code compiling options
+ Compilation options:
+   Configure arguments:
+     " '--with-blas=no' '--with-lapack=no' '--with-scalapack=no' '--with-blacs=no' 
+     '--with-ext-linalg=-L/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/lib/intel64 
+     -lmkl_intel_lp64 -lmkl_gf_ilp64 -lmkl_core -lmkl_sequential -lpthread -lm' 
+     '--enable-opencl' '--with-ocl-path=/opt/nvidia/cudatoolkit6.5/default' 'CC=cc' 
+     'CFLAGS=-I/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/include -O2' 'LDFLAGS=-O2' 
+     'LIBS=-L/opt/cray/nvidia/default/lib64 -L/opt/nvidia/cudatoolkit6.5/default/' 'CXX=CC' 
+     'FC=ftn' 'FCFLAGS=-I/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/include -O2' 
+     'F77=ftn' 'FFLAGS=-I/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/include -O2'"
+   Compilers (CC, FC, CXX)             :  [ cc, ftn, CC ]
+   Compiler flags:
+     CFLAGS:
+       -I/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/include -O2
+     FCFLAGS:
+       -I/opt/intel/15.0.1.133/composer_xe_2015.1.133/mkl/include -O2
+     CXXFLAGS                          : -g -O2
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+Rank 1 [Tue Jun 30 13:09:18 2015] [c2-0c2s9n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 1
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+ INPUT_VAR_ILLEGAL:
+   Id                                  : 31
+   Message                             : provided variable is not allowed in this context.
+   Action                              : correct or remove the input variable.
+   Callback Procedure Address          : 4790688
+ Additional Info:
+   An invalid key (qcharge) has been found in section "dft". Check above the allowed keys.
+  #^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Error raised!
+  #^^^^^^^^^^^^^^^^^^^^^ Messages are above, dumping run status in file(s) bigdft-err-*.yaml
+  #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Exiting...
+Rank 0 [Tue Jun 30 13:09:18 2015] [c2-0c2s9n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 0
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#0  0x2AAAAAEEEA47
+#2  0x2AAAB28EB91F
+#1  0x2AAAAAEEF04E
+#3  0x2AAAB28EB885
+#4  0x#2  2AAAB28ECE600x
+2AAAB28EB91F
+#3  0x2AAAB28EB885#5  
+0x2AAAB1E87917
+#4  0x2AAAB28ECE60
+#6  0x2AAAB1DC9885
+#5  0x2AAAB1E87917
+#7  0x2AAAB1E09224
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  #12  0x0x495BE95B5302 in  in __module_input_keys_MOD_input_keys_fill_allinputs_from_dict_
+
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+Rank 34 [Tue Jun 30 13:09:18 2015] [c2-0c2s14n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 34
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+  #WARNING: Input file, section "dft"; invalid key "qcharge".
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ Allowed keys:
+ - hgrids
+ - rmult
+ - ixc
+ - ncharge
+ - elecfield
+ - nspin
+ - mpol
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - gnrm_cv
+ - itermax
+ - itermin
+ - nrepmax
+ - ncong
+ - idsx
+ - dispersion
+ - inputpsiid
+ - output_wf
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+Rank 2 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 2
+Rank 5 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 5
+ - nvirt
+ - nplot
+ - disablesym
+Rank 9 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 9
+Rank 11 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 11
+ - nplot
+ - disablesym
+ - disablesym
+Rank 17 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 17
+Rank 19 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 19
+Rank 21 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 21
+ - output_denspot
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - rbuf
+ - ncongt
+ - norbv
+ - nvirt
+ - nplot
+ - disablesym
+ - nplot
+ - disablesym
+Rank 29 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 29
+Rank 31 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 31
+Rank 33 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 33
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 27 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 27
+Rank 25 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 25
+Rank 23 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 23
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 15 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 15
+Rank 13 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 13
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 7 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 7
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 3 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 3
+Rank 4 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 4
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 8 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 8
+Rank 10 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 10
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 16 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 16
+Rank 18 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 18
+Rank 20 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 20
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 28 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 28
+Rank 30 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 30
+Rank 32 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 32
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 26 [Tue Jun 30 13:09:18 2015] [c2-0c2s13n0] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 26
+Rank 24 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n3] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 24
+Rank 22 [Tue Jun 30 13:09:18 2015] [c2-0c2s12n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 22
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 14 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 14
+Rank 12 [Tue Jun 30 13:09:18 2015] [c2-0c2s11n1] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 12
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+Rank 6 [Tue Jun 30 13:09:18 2015] [c2-0c2s10n2] application called MPI_Abort(MPI_COMM_WORLD, 816437) - process 6
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+
+Program received signal SIGABRT: Process abort signal.
+
+Backtrace for this error:
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#8  0x42625A in bigdft_severe_abort_
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#0  #5  0x0x2AAAAAEEEA472AAAB1E87917
+
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#0  #1  0x0x2AAAAAEEEA472AAAAAEEF04E
+
+#1  0x2AAAAAEEF04E#2  
+0x2AAAB28EB91F
+#3  0x2AAAB28EB885#2  
+0x2AAAB28EB91F
+#4  0x2AAAB28ECE60#3  
+0x2AAAB28EB885
+#4  0x2AAAB28ECE60#5  
+0x2AAAB1E87917
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#0  #3  0x0x2AAAAAEEEA472AAAB28EB885
+
+#4  0x2AAAB28ECE60#1  
+0x2AAAAAEEF04E
+#5  0x2AAAB1E87917
+#2  0x2AAAB28EB91F
+#0  0x2AAAAAEEEA47
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F#0  
+0x2AAAAAEEEA47
+#3  0x2AAAB28EB885
+#1  #4  0x0x2AAAAAEEF04E2AAAB28ECE60
+
+#5  #2  0x0x2AAAB1E879172AAAB28EB91F
+
+#3  #6  0x0x2AAAB28EB8852AAAB1DC9885
+
+#4  0x2AAAB28ECE60
+#7  0x2AAAB1E09224
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#0  #3  0x0x2AAAAAEEEA472AAAB28EB885
+
+#4  0x2AAAB28ECE60#1  
+0x2AAAAAEEF04E
+#5  0x2AAAB1E87917
+#2  0x2AAAB28EB91F
+#6  0x2AAAB1DC9885#3  
+0x2AAAB28EB885
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#0  0x#3  2AAAAAEEEA470x
+2AAAB28EB885
+#4  0x2AAAB28ECE60#1  
+0x2AAAAAEEF04E
+#5  0x2AAAB1E87917#2  
+0x2AAAB28EB91F
+#6  0x#3  2AAAB1DC98850x
+2AAAB28EB885
+#4  0x2AAAB28ECE60
+#7  0x2AAAB1E09224
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#4  #7  0x0x2AAAB28ECE602AAAB1E09224
+
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#1  0x2AAAAAEEF04E
+#0  0x2AAAAAEEEA47
+#2  0x2AAAB28EB91F
+#1  0x2AAAAAEEF04E#3  
+0x2AAAB28EB885
+#4  0x2AAAB28ECE60#2  
+0x2AAAB28EB91F
+#3  0x2AAAB28EB885#5  
+0x2AAAB1E87917
+#4  0x2AAAB28ECE60
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#6  0x2AAAB1DC9885#3  
+0x2AAAB28EB885
+#7  #4  0x0x2AAAB1E092242AAAB28ECE60
+
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#7  0x2AAAB1E09224
+#5  #6  0x0x2AAAB1E879172AAAB1DC9885
+
+#6  #7  0x0x2AAAB1DC98852AAAB1E09224
+
+#7  0x2AAAB1E09224
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#0  0x2AAAAAEEEA47
+#5  0x2AAAB1E87917
+#1  0x2AAAAAEEF04E#6  
+0x2AAAB1DC9885
+#1  0x2AAAAAEEF04E
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#6  0x2AAAB1DC9885
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#0  #4  0x0x2AAAAAEEEA472AAAB28ECE60
+
+#1  0x2AAAAAEEF04E
+#5  0x2AAAB1E87917
+#1  #6  0x0x2AAAAAEEF04E2AAAB1DC9885
+
+#7  0x2AAAB1E09224#2  
+0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#7  0x2AAAB1E09224
+
+#7  0x#0  2AAAB1E092240x
+2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#2  0x2AAAB28EB91F
+#6  0x2AAAB1DC9885#3  
+0x2AAAB28EB885
+#7  #4  0x0x2AAAB1E092242AAAB28ECE60
+
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#7  0x2AAAB1E09224
+#2  #7  0x0x2AAAB28EB91F2AAAB1E09224
+
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#8  0x42625A in #8  bigdft_severe_abort_0x
+42625A in bigdft_severe_abort_#0  0x2AAAAAEEEA47
+#8  0x42625A in #8  bigdft_severe_abort_0x#1  0x2AAAAAEEF04E
+#6  0x2AAAB1DC9885
+#5  0x2AAAB1E87917#7  
+0x2AAAB1E09224
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#8  0x42625A in bigdft_severe_abort_
+#0  0x2AAAAAEEEA47
+#1  0x2AAAAAEEF04E
+#7  0x2AAAB1E09224
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#8  0x42625A in bigdft_severe_abort_
+#0  0x2AAAAAEEEA47
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#7  0x2AAAB1E09224
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#2  0x2AAAB28EB91F
+
+42625A in bigdft_severe_abort_
+#9  0x4537A8#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#7  0x2AAAB1E09224
+#8  #8  0x0x42625A42625A in  in bigdft_severe_abort_bigdft_severe_abort_
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#8  0x42625A in bigdft_severe_abort_
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw#8  
+0x#7  0x2AAAB1E09224
+
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#9  0x#9  4537A80x in 4537A8__dictionaries_MOD_f_err_throw in 
+__dictionaries_MOD_f_err_throw
+#7  0x2AAAB1E09224
+ in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#3  0x2AAAB28EB885
+#8  0x42625A in bigdft_severe_abort_
+#9  #9  0x0x4537A84537A8 in  in __dictionaries_MOD_f_err_throw__dictionaries_MOD_f_err_throw
+
+#8  0x42625A in bigdft_severe_abort_
+#1  0x2AAAAAEEF04E
+#2  0x2AAAB28EB91F
+#3  0x2AAAB28EB885
+#4  0x2AAAB28ECE60
+#5  0x2AAAB1E87917
+#6  0x2AAAB1DC9885
+#9  #9  0x0x4537A84537A8 in  in __dictionaries_MOD_f_err_throw__dictionaries_MOD_f_err_throw
+
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#7  0x2AAAB1E09224
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#4  0x2AAAB28ECE60
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716#8  0x42625A in bigdft_severe_abort_
+#10  #10  0x0x495716495716 in  in __module_input_keys_MOD_input_keys_fill__module_input_keys_MOD_input_keys_fill at  at input_keys.f90:?
+input_keys.f90:?
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#8  0x42625A in bigdft_severe_abort_
+#9  0x4537A8#9  0x4537A8 in __dictionaries_MOD_f_err_throw#9  
+0x4537A8 in __dictionaries_MOD_f_err_throw
+#8  0x42625A in bigdft_severe_abort_
+42625A in bigdft_severe_abort_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+ in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  #11  0x0x495BE9495BE9 in  in __module_input_keys_MOD_input_keys_fill_all__module_input_keys_MOD_input_keys_fill_all
+
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+ in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#8  0x42625A in bigdft_severe_abort_
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+ in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#10  0x495716#8   in 0x__module_input_keys_MOD_input_keys_fill42625A at  in input_keys.f90:?
+bigdft_severe_abort_
+#8  0x42625A in bigdft_severe_abort_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all#12  
+0x5B5302 in inputs_from_dict_
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#12  #12  0x0x5B53025B5302 in  in inputs_from_dict_inputs_from_dict_
+
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#8  0x42625A#10   in 0xbigdft_severe_abort_495716
+ in __module_input_keys_MOD_input_keys_fill#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#12  0x5B5302 in inputs_from_dict_
+ at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#13  0x#13  43D75C0x in 43D75C__bigdft_run_MOD_run_objects_init in 
+__bigdft_run_MOD_run_objects_init
+#8  0x42625A in bigdft_severe_abort_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#5  0x2AAAB1E87917
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#8  0x42625A in bigdft_severe_abort_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#14  0x#13  40B9E40x in 43D75CMAIN__ in  at __bigdft_run_MOD_run_objects_initBigDFT.f90:?
+
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#13  0x#11  43D75C0x in 495BE9__bigdft_run_MOD_run_objects_init in 
+__module_input_keys_MOD_input_keys_fill_all
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#12  0x5B5302#12  0x5B5302 in inputs_from_dict_
+#10  0x#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#10  #13  0x0x49571643D75C in  in __module_input_keys_MOD_input_keys_fill__bigdft_run_MOD_run_objects_init at 
+input_keys.f90:?
+
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init#14  
+0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#12  0x5B5302 in inputs_from_dict_
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#6  0x2AAAB1DC9885
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+ in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#12  0x5B5302 in inputs_from_dict_
+#12  0x5B5302 in inputs_from_dict_
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#7  0x2AAAB1E09224
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+#8  0x42625A in bigdft_severe_abort_
+#9  0x4537A8 in __dictionaries_MOD_f_err_throw
+#10  0x495716 in __module_input_keys_MOD_input_keys_fill at input_keys.f90:?
+#11  0x495BE9 in __module_input_keys_MOD_input_keys_fill_all
+#12  0x5B5302 in inputs_from_dict_
+#13  0x43D75C in __bigdft_run_MOD_run_objects_init
+#14  0x40B9E4 in MAIN__ at BigDFT.f90:?
+_pmiu_daemon(SIGCHLD): [NID 00563] [c2-0c2s12n3] [Tue Jun 30 13:09:18 2015] PE RANK 24 exit signal Aborted
+_pmiu_daemon(SIGCHLD): [NID 00564] [c2-0c2s13n0] [Tue Jun 30 13:09:18 2015] PE RANK 26 exit signal Aborted
+_pmiu_daemon(SIGCHLD): [NID 00555] [c2-0c2s10n3] [Tue Jun 30 13:09:18 2015] PE RANK 8 exit signal Aborted
+_pmiu_daemon(SIGCHLD): [NID 00561] [c2-0c2s12n1] [Tue Jun 30 13:09:18 2015] PE RANK 20 exit signal Aborted
+[NID 00563] 2015-06-30 13:09:18 Apid 5020362: initiated application termination
+Application 5020362 exit codes: 134
+Application 5020362 exit signals: Killed
+Application 5020362 resources: utime ~0s, stime ~0s, Rss ~19296, inblocks ~148903, outblocks ~317986
+Command exited with non-zero status 137
+real 4.33
+user 0.81
+sys 0.20
