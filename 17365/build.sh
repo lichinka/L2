@@ -7,7 +7,7 @@ SRC=.
 
 case $( hostname ) in 
     *daint* | *santis*)
-        MODS="PrgEnv-gnu craype-accel-nvidia35 cudatoolkit/6.5.14-1.0502.9613.6.1 cray-libsci_acc/3.1.1"
+        MODS="PrgEnv-gnu craype-accel-nvidia35 cudatoolkit cray-libsci_acc"
         CC=cc
         CXX=CC
         CLSDK=/opt/nvidia/cudatoolkit
@@ -18,21 +18,26 @@ case $( hostname ) in
         CC=mpicc
         CXX=g++
         CLSDK=/apps/opcode/CUDA-5.5
-        CLLIB=/apps/opcode/CUDA-5.5
+        CLLIB=${CLSDK}
         ;;
     *)
-        echo "Don't know how to compile here. Exiting."
-        exit 1
+        echo "Don't know how to compile here. Trying anyway ..."
+        MODS=""
+        CC=mpicc
+        CXX=mpic++
+        CLSDK=/usr/local/cuda
+        CLLIB=${CLSDK}
         ;;
 esac
 
-echo "Checking modules on $( hostname ) ..."
+echo -n "Checking modules on $( hostname ) ... "
 for m in ${MODS}; do
     if [ -z "$( echo ${LOADEDMODULES} | grep ${m} )" ]; then
         echo -e "Please issue:\n\tmodule load ${m}"
         exit 1
     fi
 done
+echo "ok"
 
 echo "Building on $( hostname ) ..."
 $CXX $SRC/01_device_query.cpp -I$CLSDK/include -L$CLLIB/lib64 -lOpenCL -o 01_device_query
